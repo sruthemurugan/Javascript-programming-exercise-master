@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Number Generator</title>
+  <style>
+   .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+   .number {
+      display: inline-block;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="container"></div>
+
+  <script>
+    const container = document.getElementById('container');
+
+    function isPrime(num) {
+      if (num <= 1) return false;
+      for (let i = 2; i * i <= num; i++) {
+        if (num % i === 0) return false;
+      }
+      return true;
+    }
+
+    for (let i = 0; i <= 100; i++) {
+      const numberElement = document.createElement('div');
+      numberElement.className = 'number';
+      numberElement.textContent = i;
+
+      if (i % 2 === 0) {
+        numberElement.style.backgroundColor = 'green'; 
+      } else {
+        numberElement.style.backgroundColor = 'yellow'; 
+      }
+
+      if (isPrime(i)) {
+        numberElement.style.backgroundColor = 'red'; 
+      }
+
+      container.appendChild(numberElement);
+    }
+  </script>
+</body>
+</html>

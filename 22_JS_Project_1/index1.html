@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Solar System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      width: 80%;
+      margin: 40px auto;
+      text-align: center;
+    }
+    .planet-select {
+      margin-bottom: 20px;
+    }
+    .weight-input {
+      margin-bottom: 20px;
+    }
+    .result {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Solar System Project</h1>
+    <select id="planet-select" class="planet-select">
+        <option value="Mercury">Mercury</option>
+        <option value="Venus">Venus</option>
+      <option value="Earth">Earth</option>
+      <option value="Mars">Mars</option>
+      <option value="Jupiter">Jupiter</option>
+      <option value="Saturn">Saturn</option>
+      <option value="Uranus">Uranus</option>
+      <option value="Neptune">Neptune</option>
+    </select>
+    <input id="weight-input" type="number" class="weight-input" placeholder="Enter weight on Earth">
+    <button id="calculate-btn">Calculate</button>
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    const planetSelect = document.getElementById('planet-select');
+    const weightInput = document.getElementById('weight-input');
+    const calculateBtn = document.getElementById('calculate-btn');
+    const resultDiv = document.getElementById('result');
+
+    const planetGravities = {
+      Mercury: 0.38,
+      Venus: 0.91,
+      Earth: 9.8,
+      Mars: 3.71,
+      Jupiter: 24.79,
+      Saturn: 10.44,
+      Uranus: 8.87,
+      Neptune: 11.15
+    };
+
+    calculateBtn.addEventListener('click', () => {
+      const selectedPlanet = planetSelect.value;
+      const weightOnEarth = parseFloat(weightInput.value);
+      const gravity = planetGravities[selectedPlanet];
+      const weightOnPlanet = weightOnEarth * gravity / 9.8;
+      resultDiv.textContent = `Your weight on ${selectedPlanet} is ${weightOnPlanet.toFixed(2)} kg`;
+    });
+  </script>
+</body>
+</html>
