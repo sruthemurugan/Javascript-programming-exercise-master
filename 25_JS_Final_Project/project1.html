@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries Animation</title>
+   <style>
+    body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+.flag {
+    width: 200px;
+    height: 150px;
+    background-color: #ccc;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+.country-info {
+    flex: 1;
+    text-align: left;
+}
+.country-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.country-info p {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.country-info span {
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+<script>
+const countryData = {
+    name: "Country Name",
+    capital: "Capital City",
+    population: "Population",
+    region: "Region",
+    subregion: "Subregion",
+    language: "Language"
+}
+function changeCountryInfo() {
+    document.getElementById('capital').textContent = countryData.capital;
+    document.getElementById('population').textContent = countryData.population;
+    document.getElementById('region').textContent = countryData.region;
+    document.getElementById('subregion').textContent = countryData.subregion;
+    document.getElementById('language').textContent = countryData.language;
+}
+setInterval(changeCountryInfo, 3000);
+</script>
+
+<div class="container">
+        <div class="flag"></div>
+        <div class="country-info">
+            <h2>Country Name</h2>
+            <p>Capital: <span id="capital">Capital</span></p>
+            <p>Population: <span id="population">Population</span></p>
+            <p>Region: <span id="region">Region</span></p>
+            <p>Subregion: <span id="subregion">Subregion</span></p>
+            <p>Language: <span id="language">Language</span></p>
+        </div>
+    </div>
+    
+</body>
+</html>
